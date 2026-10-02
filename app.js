@@ -38,6 +38,7 @@ function renderPapers() {
     authors.append(document.createTextNode(parts[0]), element('strong', '', 'Zhongze Wu'), document.createTextNode(parts[1] || ''));
     body.append(authors);
     const meta = element('div', 'paper-meta');
+    if (['AAAI', 'CVPR', 'NeurIPS', 'ICML', 'ACM MM'].includes(p.venue)) meta.append(element('span', 'badge', 'CCF-A'));
     if (p.oral) meta.append(element('span', 'badge oral', 'Oral'));
     meta.append(element('span', 'status', language === 'zh' ? p.roleZh : p.roleEn));
     if (p.accepted) meta.append(element('span', 'badge', language === 'zh' ? '已录用' : 'Accepted'));
